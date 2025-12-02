@@ -1,3 +1,10 @@
+.content {
+    background-color: var(--main-background-color);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
 .wrapLogo {
     padding: 21px;
     display: flex;
@@ -9,13 +16,6 @@
 .logo {
     width: 61px;
     height: 23px;
-}
-
-.content {
-    background-color: var(--main-background-color);
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
 }
 
 .containerInner {
