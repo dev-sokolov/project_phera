@@ -67,7 +67,7 @@ const ResultWithoutDetailsPage = () => {
                                 <h3 className={styles.heading}>Make this result more personal</h3>
                                 <p className={styles.innerText}>Want to understand why your pH looks like this? Add your age group, hormone status, background, and current symptoms to get more tailored insights.</p>
                                 <div className={styles.btnTop}>
-                                    <Button onClick={() => navigate("/add-details")}>Add my details</Button>
+                                    <Button >Add my details</Button>
                                 </div>
                             </div>
                         </div>
