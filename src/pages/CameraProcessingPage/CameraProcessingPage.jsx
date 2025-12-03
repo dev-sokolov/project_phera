@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Lottie from "lottie-react";
 import Container from "../../components/Container/Container";
 
+import loader from "../../assets/lottie/loader.json";
 import Logo from "../../assets/Logo";
 import styles from "./CameraProcessingPage.module.css";
 
@@ -10,10 +12,9 @@ const CameraProcessingPage = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigate("/result-without-details"); // укажи путь к странице результатов
-        }, 3000); // 3000 мс = 3 секунды
-
-        return () => clearTimeout(timer); // очистка таймера при размонтировании
+            navigate("/result-without-details");
+        }, 3000);
+        return () => clearTimeout(timer);
     }, [navigate]);
     return (
         <>
@@ -27,6 +28,9 @@ const CameraProcessingPage = () => {
                     <div className={styles.containerInner}>
                         <div className={styles.wrapTextBlock}>
                             <div className={styles.textBlock}>
+                                <div className={styles.wrapLoading}>
+                                    <Lottie className={styles.loading} animationData={loader} loop={true} />
+                                </div>
                                 <h2 className={styles.heading}>Processing Your Test</h2>
                                 <p className={styles.text}>This usually takes less than a minute.Please keep this screen open — your result will appear automatically.</p>
                             </div>

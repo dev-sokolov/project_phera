@@ -1,3 +1,10 @@
+.content {
+    background-color: var(--main-background-color);
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+}
+
 .wrapLogo {
     padding: 21px;
     display: flex;
@@ -11,29 +18,22 @@
     height: 23px;
 }
 
-.content {
-    background-color: var(--main-background-color);
-    height: 100dvh;
-    display: flex;
-    flex-direction: column;
-}
-
 .containerInner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    height: 100%;
     position: relative;
     flex: 1;
-    margin-left: 20px;
-    margin-right: 20px;
 }
 
 .wrapTextBlock {
     position: absolute;
-    max-width: 312px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .textBlock {
@@ -42,7 +42,19 @@
     gap: 10px;
     align-items: center;
     text-align: center;
-    max-width: 316px;
+    padding: 0 20px;
+    max-width: 352px;
+}
+
+.wrapLoading {
+    width: 120px;
+    height: 120px;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 31px;
 }
 
 .heading {

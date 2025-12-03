@@ -173,11 +173,12 @@
     margin-top: 8px;
 }
 
-.bottomBlock {
-    background-color: var(--main-background-color);
-    max-width: 393px;
+.fixedBlock {
     padding: 0 24px;
     margin: 0 auto;
+
+    background-color: var(--main-background-color);
+    max-width: 393px;
 
     position: fixed;
     bottom: 0;
@@ -187,15 +188,15 @@
     z-index: 1000;
 }
 
-.bottomLine {
+/* .bottomLine {
     width: 345px;
     height: 1px;
     background-color: var(--main-background-color-border);
     margin: 0 auto;
-}
+} */
 
 .btn {
-    margin-top: 35px;
+    margin-top: 10px;
 }
 
 .wrapLine {
