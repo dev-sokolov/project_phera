@@ -1,3 +1,4 @@
+// import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import Container from "../../components/Container/Container";
@@ -8,9 +9,16 @@ import styles from "./ResultWithoutDetailsPage.module.css";
 const ResultWithoutDetailsPage = () => {
     const navigate = useNavigate();
 
+    // useEffect(() => {
+    //     const contentEl = document.querySelector(`.${styles.content}`);
+    //     if (contentEl) {
+    //         contentEl.scrollTop = 0;
+    //     }
+    // }, []);
+
     return (
         <>
-            <div className={styles.content}>
+            <div className={styles.content} data-scroll-container>
                 <div className={styles.wrapLogo}>
                     <div className={styles.logo}>
                         <Logo />
