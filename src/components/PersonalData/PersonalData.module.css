@@ -1,0 +1,15 @@
+.wrapper {
+    width: 100%;    
+    /* padding-left: 14.5px;
+    padding-right: 14.5px; */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+

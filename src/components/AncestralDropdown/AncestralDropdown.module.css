@@ -1,0 +1,62 @@
+.wrap {
+    display: block;
+    position: relative;
+    padding: 20px 14.5px;
+    background-color: #FFFFFF;
+}
+
+.title {
+    color: var(--main-color);
+    ;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.text {
+    font-size: 12px;
+    color: #717680;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+.wrapAncestralList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.isemSelected {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    border: 1px solid var(--main-color);
+    border-radius: 100px;
+    background-color: #00343D1A;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkmark {
+    display: inline-block;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.checkmarkHidden {
+    display: none;
+}
