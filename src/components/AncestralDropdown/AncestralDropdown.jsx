@@ -1,11 +1,13 @@
 import { useRef, memo } from "react";
-import styles from "./AncestralDropdown.module.css";
+
 import CheckboxTick from "../../assets/icons/CheckboxTick";
+
+import styles from "./AncestralDropdown.module.css";
 
 const ancestralOptions = [
   "Asian",
   "African",
-  "European",
+  "Caucasian",
   "Latin American",
   "Middle Eastern",
   "Mixed",
@@ -33,7 +35,6 @@ const AncestralDropdown = ({ ancestral, onChange }) => {
   return (
     <div className={styles.wrap} ref={containerRef}>
       <h4 className={styles.title}>Ancestral Background(s)</h4>
-      <p className={styles.text}>Select all that apply.</p>
       <div className={styles.wrapAncestralList}>
         {ancestralList}
       </div>
