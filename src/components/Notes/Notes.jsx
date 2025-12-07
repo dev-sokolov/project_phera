@@ -18,13 +18,13 @@ const Notes = ({ notes, setNotes }) => {
   // click out
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (containerRef.current && !containerRef.current.contains(e.target)) {
+      if (isEditing && containerRef.current && !containerRef.current.contains(e.target)) {
         setIsEditing(false);
       }
     };
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
-  }, []);
+  }, [isEditing]);
 
   // click Escape
   useEffect(() => {
@@ -34,7 +34,7 @@ const Notes = ({ notes, setNotes }) => {
   }, []);
 
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrap} ref={containerRef}>
       <div className={styles.heading}>
         <h4 className={styles.title}>Notes</h4>
         <div onClick={() => setIsEditing(true)} className={styles.edit}>
@@ -49,7 +49,7 @@ const Notes = ({ notes, setNotes }) => {
           value={notes}
           maxLength={500}
           onChange={(e) => setNotes(e.target.value)}
-          onBlur={() => setIsEditing(false)} // авто-закрытие
+          autoFocus
         />
       ) : (
         <p className={styles.text}>
@@ -61,3 +61,4 @@ const Notes = ({ notes, setNotes }) => {
 };
 
 export default Notes;
+
