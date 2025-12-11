@@ -73,7 +73,7 @@ const RegistrationStepPassword = () => {
             localStorage.setItem("reg_token", token);
 
             // 🔹 переходим на следующий шаг
-            navigate("/signup/name");
+            navigate("/home");
         } catch (e) {
             setServerError("Server error");
         }
@@ -163,7 +163,7 @@ const RegistrationStepPassword = () => {
                             >
                                 Confirm
                             </Button>
-                            <ButtonReverse onClick={() => navigate("/signup/username")}>Go back</ButtonReverse>
+                            <ButtonReverse onClick={() => navigate("/registration/username")}>Go back</ButtonReverse>
                         </div>
                     </form>
                 </div>

@@ -6,74 +6,66 @@ import Button from "../../components/Button/Button";
 import ButtonReverse from "../../components/ButtonReverse/ButtonReverse";
 import Container from "../../components/Container/Container";
 import Logo from "../../assets/Logo";
-import { registrNameApi } from "../../shared/api/auth-api";
+import Eye from "../../assets/icons/Eye";
+import { loginApi } from "../../shared/api/auth-api";
 
-import styles from "./RegistrationStepName.module.css";
+import styles from "./LoginPage.module.css";
 
-const RegistrationStepName = () => {
+const LoginPage = () => {
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
     const [serverError, setServerError] = useState("");
-
-    // Берём значение из localStorage при инициализации формы
-    const savedUsername = localStorage.getItem("reg_username") || "";
 
     const { register, handleSubmit, watch, formState: { errors }, clearErrors } = useForm({
         defaultValues: {
-            username: savedUsername
+            username: "",
+            password: "",
         },
         mode: "onBlur"
     });
 
     const username = watch("username");
-    const showUsernameError = errors.username && username.length < 2;
+    const password = watch("password");
 
-    const isFormValid =
-        username.length >= 2;
+    const isFormValid = username.length >= 2 && password.length >= 6;
 
-    // const onSubmit = async ({ username }) => {  // !!!!! реальный запрос на бэкенд  !!!!!!!!!!
+    // const onSubmit = async ({ username, password }) => {  //!!!!!!!! реальный  !!!!!!!!!!
     //     try {
     //         setServerError("");
 
-    // 🔹 сохраняем username в localStorage
-    // localStorage.setItem("reg_username", username);
+    //         // 🔹 запрос на backend
+    //         const res = await loginApi({ username, password });
 
-    //         // 1️⃣ запрос на backend
-    //         const res = await registrNameApi(username);
-
-    //         // 2️⃣ получаем token
+    //         // 🔹 backend возвращает токен
     //         const token = res?.token;
     //         if (!token) {
     //             setServerError("Unexpected server response");
     //             return;
     //         }
 
-    //         // 3️⃣ сохраняем токен для следующего шага
-    //         localStorage.setItem("reg_token", token);
+    //         // 🔹 сохраняем токен
+    //         localStorage.setItem("token", token);
 
-    //         // 4️⃣ переход на следующий шаг
-    //         navigate("/signup/password");
+    //         // 🔹 переход на домашнюю страницу
+    //         navigate("/home");
 
     //     } catch (e) {
-    //         setServerError(e?.response?.data?.message || "Server error");
+    //         setServerError(e?.response?.data?.message || "Invalid username or password");
     //     }
     // };
 
-    const onSubmit = async ({ username }) => {      // временный потом Удалить!!!!!!!!!!!!
+    const onSubmit = async ({ password }) => {      // временный потом Удалить!!!!!!!!!!!!
         try {
             setServerError("");
-
-            // 🔹 сохраняем username в localStorage
-            localStorage.setItem("reg_username", username);
 
             // 🔹 симуляция backend
             await new Promise(res => setTimeout(res, 500)); // имитация запроса
             const token = "fake-token";
 
             // 🔹 сохраняем токен
-            localStorage.setItem("reg_token", token);
+            localStorage.setItem("token", token);
 
-            // 🔹 переходим на следующий шаг
-            navigate("/registration/password");
+            navigate("/home");
         } catch (e) {
             setServerError("Server error");
         }
@@ -90,17 +82,8 @@ const RegistrationStepName = () => {
             <Container>
                 <div className={styles.containerInner}>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <div className={styles.crumbs}>
-                            <div className={styles.itemColored}></div>
-                            {/* <div className={styles.itemColored}></div> */}
-                            <div className={styles.item}></div>
-                        </div>
-
                         <div className={styles.textBlock}>
-                            <h1 className={styles.heading}>Welcome! Create your pHera account</h1>
-                            <p className={styles.text}>
-                                Enter your number to receive a one-time code and securely save your results.
-                            </p>
+                            <h1 className={styles.heading}>Welcome back! Log in to your account</h1>
                         </div>
 
                         <div className={styles.dataSent}>
@@ -110,7 +93,7 @@ const RegistrationStepName = () => {
                                 <div className={styles.inputWrapper}>
                                     <input
                                         {...register("username", {
-                                            required: "Create your username",
+                                            required: "Enter your username",
                                             minLength: { value: 2, message: "Min 2 characters" },
                                             onChange: (e) => {
                                                 if (e.target.value.length >= 2) clearErrors("username");
@@ -120,11 +103,34 @@ const RegistrationStepName = () => {
                                         id="username"
                                         type="text"
                                         className={styles.input}
-                                        value={username}
-                                        aria-invalid={!!showUsernameError}
                                     />
+                                    {errors.username && (
+                                        <p className={styles.error}>{errors.username.message}</p>
+                                    )}
                                 </div>
-                                {showUsernameError && <p className={styles.error}>{errors.username.message}</p>}
+                            </div>
+
+                            <div className={styles.itemInput}>
+                                <label htmlFor="password" className={styles.label}>Password</label>
+
+                                <div className={styles.inputWrapper}>
+                                    <input
+                                        {...register("password", {
+                                            required: "Enter your password",
+                                            minLength: { value: 6, message: "Min 6 characters" },
+                                            onChange: (e) => {
+                                                if (e.target.value.length >= 6) clearErrors("password");
+                                            }
+                                        })}
+                                        id="password"
+                                        type={showPassword ? "text" : "password"}
+                                        className={styles.input}
+                                    />
+                                    <Eye className={styles.icon} onClick={() => setShowPassword(s => !s)} />
+                                </div>
+                                {errors.password && (
+                                    <p className={styles.error}>{errors.password.message}</p>
+                                )}
                             </div>
                         </div>
 
@@ -136,13 +142,13 @@ const RegistrationStepName = () => {
                                 className={!isFormValid ? styles.btnDisabled : ""}
                                 disabled={!isFormValid}
                             >
-                                Confirm
+                                Log In
                             </Button>
                             <ButtonReverse onClick={() => navigate("/signup")}>Go back</ButtonReverse>
                         </div>
                     </form>
                     <div className={styles.wrapinfo}>
-                        <p className={styles.info}>Already have an account?<Link to="/login" className={styles.login}>LOG IN</Link></p> 
+                        <p className={styles.info}>New to pHera?<Link to="/registration/username" className={styles.signin}>SIGN UP</Link></p>
                     </div>
                 </div>
             </Container>
@@ -150,5 +156,5 @@ const RegistrationStepName = () => {
     );
 };
 
-export default RegistrationStepName;
+export default LoginPage;
 
