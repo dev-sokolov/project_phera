@@ -3,6 +3,13 @@
     margin: 0;
 }
 
+.scrollFix {
+    height: 1px;
+    width: 100%;
+    pointer-events: none;
+    opacity: 0;
+}
+
 .wrapLogo {
     position: relative;
     padding: 21px;

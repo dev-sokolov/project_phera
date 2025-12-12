@@ -21,23 +21,24 @@ const StartPage = () => {
     //     window.scrollTo(0, 0);
     // }, []);
 
-    // useEffect(() => {
-    //     if ("scrollRestoration" in window.history) {
-    //         window.history.scrollRestoration = "manual";
-    //     }
+    useEffect(() => {
+        if ("scrollRestoration" in window.history) {
+            window.history.scrollRestoration = "manual";
+        }
 
-    //     // Fix for Safari pull-to-refresh scroll jump
-    //     requestAnimationFrame(() => {
-    //         requestAnimationFrame(() => {
-    //             window.scrollTo(0, 0);
-    //         });
-    //     });
-    // }, []);
+        // Fix for Safari pull-to-refresh scroll jump
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
+        });
+    }, []);
 
     return (
         <>
             <div className={styles.pageRoot}>
                 <div className={styles.content}>
+                    <div className={styles.scrollFix} />
                     <div className={styles.wrapLogo}>
                         <div className={styles.logo}>
                             <Logo />
