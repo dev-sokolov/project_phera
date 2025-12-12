@@ -20,5 +20,5 @@ body {
 
     overflow: hidden;
     /* ← главное */
-    overscroll-behavior-y: contain;
+    /* overscroll-behavior-y: contain; */
 }
