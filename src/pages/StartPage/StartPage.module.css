@@ -7,11 +7,11 @@
 }
 
 
-.scrollArea {
+/* .scrollArea {
     height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-}
+} */
 
 .scrollFix {
     height: 1px;
