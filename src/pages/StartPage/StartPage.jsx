@@ -16,9 +16,22 @@ const StartPage = () => {
         localStorage.removeItem("reg_username");
     }, []);
 
+    // useEffect(() => {
+    //     window.history.scrollRestoration = "manual";
+    //     window.scrollTo(0, 0);
+    // }, []);
+
     useEffect(() => {
-        window.history.scrollRestoration = "manual";
-        window.scrollTo(0, 0);
+        if ("scrollRestoration" in window.history) {
+            window.history.scrollRestoration = "manual";
+        }
+
+        // Fix for Safari pull-to-refresh scroll jump
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
+        });
     }, []);
 
     return (
