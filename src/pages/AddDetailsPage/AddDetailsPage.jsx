@@ -28,8 +28,10 @@ const AddDetailsPage = () => {
 
     const [age, setAge] = useState(state?.age || "");
     const [hormone, setHormone] = useState(state?.hormone || "");
-    const [ancestral, setAncestral] = useState(state?.ancestral || []);
-    const [symptoms, setSymptoms] = useState(state?.symptoms || []);
+    const [ethnicBackground, setEthnicBackground] = useState(state?.ethnicBackground || []);
+    const [discharge, setDischarge] = useState(state?.discharge || []);
+    const [vulva, setVulva] = useState(state?.vulva || []);
+    const [smell, setSmell] = useState(state?.smell || []);
     const [notes, setNotes] = useState(state?.notes || "");
 
     return (
@@ -43,9 +45,9 @@ const AddDetailsPage = () => {
                 <Container>
                     <div className={styles.containerInner}>
                         <div className={styles.heading}>
-                            <h1 className={styles.title}>Your details help us make your insights more accurate and helpful.</h1>
+                            <h1 className={styles.title}>To help us give you more accurate and meaningful insights, please select what best describes you.</h1>
                             <p className={styles.privacyPolicy}>
-                                By sharing this information, you consent to pHera using it to personalize your insights. Your data stays private and is never shared without your permission. Read more in our <a href="#">Privacy Policy</a>.
+                                We process your responses in real time only to provide context for your result. They are not stored. You can read more in our <a href="#">Privacy Policy</a>.
                             </p>
                         </div>
                         <div className={styles.personalData}>
@@ -54,10 +56,14 @@ const AddDetailsPage = () => {
                                 setAge={setAge}
                                 hormone={hormone}
                                 setHormone={setHormone}
-                                ancestral={ancestral}
-                                setAncestral={setAncestral}
-                                symptoms={symptoms}
-                                setSymptoms={setSymptoms}
+                                ethnicBackground={ethnicBackground}
+                                setEthnicBackground={setEthnicBackground}
+                                discharge={discharge}
+                                setDischarge={setDischarge}
+                                vulva={vulva}
+                                setVulva={setVulva}
+                                smell={smell}
+                                setSmell={setSmell}
                                 notes={notes}
                                 setNotes={setNotes}
                             />
@@ -71,8 +77,10 @@ const AddDetailsPage = () => {
                                         state: {
                                             age,
                                             hormone,
-                                            ancestral,
-                                            symptoms,
+                                            ethnicBackground,
+                                            discharge,
+                                            vulva,
+                                            smell,
                                             notes
                                         }
                                     })}

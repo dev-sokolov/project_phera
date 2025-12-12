@@ -39,8 +39,6 @@ const StartPage = () => {
                         </div>
                     </div>
                 </Container>
-
-
             </div>
         </>
     )
