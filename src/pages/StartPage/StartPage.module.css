@@ -1,25 +1,3 @@
-.pageRoot {
-    /* padding: 0;
-    margin: 0; */
-
-    height: 100vh;
-    overflow: hidden;
-}
-
-
-/* .scrollArea {
-    height: 100%;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-} */
-
-.scrollFix {
-    height: 1px;
-    width: 100%;
-    pointer-events: none;
-    opacity: 0;
-}
-
 .wrapLogo {
     position: relative;
     padding: 21px;
@@ -55,11 +33,6 @@
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-
-    overflow-y: auto;
-    height: 100%;
-    -webkit-overflow-scrolling: touch;
-    /* smooth scroll */
 }
 
 .img {
@@ -116,3 +89,7 @@
     margin-top: auto;
     width: 100%;
 }
+
+
+
+
