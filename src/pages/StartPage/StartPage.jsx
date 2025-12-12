@@ -37,28 +37,30 @@ const StartPage = () => {
     return (
         <>
             <div className={styles.pageRoot}>
-                <div className={styles.content}>
-                    <div className={styles.scrollFix} />
-                    <div className={styles.wrapLogo}>
-                        <div className={styles.logo}>
-                            <Logo />
-                        </div>
-                    </div>
-                    <Container>
-                        <div className={styles.img}>
-                            <img src={signUp} alt="Start page img" />
-                        </div>
-                        <div className={styles.textBlock}>
-                            <h1 className={styles.heading}>Quick, private vaginal pH testing right from your phone.</h1>
-                            <p className={styles.text}>Make sure you have your pHera test box and test strip ready. You’ll need them to scan your QR code and capture your result.</p>
-                        </div>
-                        <div className={styles.bottomBlock}>
-                            <div className={styles.btns}>
-                                <Button onClick={() => navigate("/registration/username")}>Create account</Button>
-                                <ButtonReverse onClick={() => navigate("/login")}>Log In</ButtonReverse>
+                <div className={styles.scrollArea}>
+                    <div className={styles.content}>
+                        <div className={styles.scrollFix} />
+                        <div className={styles.wrapLogo}>
+                            <div className={styles.logo}>
+                                <Logo />
                             </div>
                         </div>
-                    </Container>
+                        <Container>
+                            <div className={styles.img}>
+                                <img src={signUp} alt="Start page img" />
+                            </div>
+                            <div className={styles.textBlock}>
+                                <h1 className={styles.heading}>Quick, private vaginal pH testing right from your phone.</h1>
+                                <p className={styles.text}>Make sure you have your pHera test box and test strip ready. You’ll need them to scan your QR code and capture your result.</p>
+                            </div>
+                            <div className={styles.bottomBlock}>
+                                <div className={styles.btns}>
+                                    <Button onClick={() => navigate("/registration/username")}>Create account</Button>
+                                    <ButtonReverse onClick={() => navigate("/login")}>Log In</ButtonReverse>
+                                </div>
+                            </div>
+                        </Container>
+                    </div>
                 </div>
             </div>
         </>

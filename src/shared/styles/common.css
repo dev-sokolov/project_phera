@@ -17,4 +17,8 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     /* overscroll-behavior-y: none; */
+
+    overflow: hidden;
+    /* ← главное */
+    overscroll-behavior-y: contain;
 }
