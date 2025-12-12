@@ -37,7 +37,7 @@ const StartPage = () => {
     return (
         <>
             <div className={styles.content}>
-                <div className={styles.scrollFix}>
+                <div className={styles.scrollFix}></div>
                     <div className={styles.wrapLogo}>
                         <div className={styles.logo}>
                             <Logo />
@@ -58,7 +58,7 @@ const StartPage = () => {
                             </div>
                         </div>
                     </Container>
-                </div>
+                
 
             </div>
         </>
